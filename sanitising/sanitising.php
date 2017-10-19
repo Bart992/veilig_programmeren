@@ -23,16 +23,6 @@ if(isset($_REQUEST["email"]))
 	
 	Start leerling-code 
 */
-/*Start code by Jesse de Jong*/
- +if(isset($_POST['submit'])){
- +	$verificatiecode = filter_var($_POST['verificatiecode'], FILTER_SANATIZE_NUMBER_INT);
- +	if (preg_match('/^\d{4}$/', $verificatiecode) && $verificatiecode == 1111 /*Example*/) {
- +  	echo "Je code klopt!";
- +	} else {
- +	echo "Er is iets fout gegaan!";
- +	}
- +}
- +/*End of code by Jesse de Jong*/
 
 
 /* Start code by Maarten Kampmeijer */
@@ -182,25 +172,17 @@ if(isset($_REQUEST["animals"])) {
 }
 /* End of code by Jesse Izeboud */
 
-/* Start code by Maurice de Jong  */
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-if (isset($_REQUEST["leerlingnummer"])) {
-$intNummer = intval($_REQUEST["leerlingnummer"]);
-
-if (filter_var($intNummer, FILTER_VALIDATE_INT) == true && $_REQUEST["leerlingnummer"] == $intNummer && strlen($_REQUEST["leerlingnummer"]) == 5 && preg_match("%[0-9]{5}%", $_REQUEST["leerlingnummer"])) {
-	echo 'Leerlingnummer is goed<br>' . $_REQUEST["leerlingnummer"];
-} else {
-	echo "leerlingnummer is fout";
-}
-
-} else {
-	echo "Geen nummer ingevoerd";
-}
-
-/* End of code by Maurice de Jong */
 	
+/* Start code by Bart de Jong */
+	if(isset($_REQUEST["url"]));
+{
+	$url = filter_var($_REQUEST["url"], FILTER_SANITIZE_ENCODED);
+	echo "url: ".$url."<br>";
+}
+	
+/* End of code by Bart de Jong */
+
 /* End of leerling code. */
 
 echo "<a href='form.html'>back</a>";
